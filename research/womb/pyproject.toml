@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "womb"
+version = "0.1.0"
+description = "womb: where loom and doom meet — joint audiovisual generation. Sonify video, degrade generations, feed the loop; the artifact is always a finished video. Fully offline, pure Python."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["audiovisual", "sonification", "feedback", "drift", "generative", "creative-coding"]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+# the metabolism runs on numpy + the two sibling libraries + ffmpeg alone.
+# RAVE (local neural latents) is optional and imported lazily.
+rave = ["acids-rave"]
+test = ["pytest>=7"]
+
+[project.scripts]
+womb = "womb.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "doom-visuals"
+version = "0.1.0"
+description = "doom: perfectly audio-synchronized generative video — demoscene, PS2-era, glitch, and self-organizing scenes rendered from any .wav, piped through ffmpeg into H.264 .mp4."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = [
+    "generative-video",
+    "audio-reactive",
+    "demoscene",
+    "glitch",
+    "creative-coding",
+    "music-visuals",
+]
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+all = ["soundfile>=0.12"]
+test = ["pytest>=7", "soundfile>=0.12"]
+
+[project.scripts]
+doom = "doom.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,8 @@
+# core runtime — pure-numpy DSP + IO
+numpy>=1.24
+scipy>=1.10
+soundfile>=0.12
+
+# optional: echo's fitted-metric block weights use scikit-learn when present
+# (everything degrades gracefully without it)
+# scikit-learn>=1.0

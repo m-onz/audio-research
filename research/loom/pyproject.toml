@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "audio-loom"
+version = "0.1.0"
+description = "A modular library for algorithmic audio composition: chunk, process, re-process, and weave .wav corpora into finished pieces of a defined length."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "loom contributors" }]
+keywords = [
+    "audio",
+    "algorithmic-composition",
+    "granular-synthesis",
+    "offline-rendering",
+    "dsp",
+    "sound-design",
+    "machine-listening",
+]
+classifiers = [
+    "Intended Audience :: Musicians",
+    "Intended Audience :: Science/Research",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+# loom runs on numpy alone; every other dependency is optional and
+# degrades gracefully (see loom/io.py, loom/catalog.py, loom/ml.py).
+dependencies = ["numpy>=1.24"]
+
+[project.optional-dependencies]
+soundfile = ["soundfile>=0.12"]
+scipy = ["scipy>=1.10"]
+ml = ["scikit-learn>=1.3"]
+all = ["soundfile>=0.12", "scipy>=1.10", "scikit-learn>=1.3"]
+test = ["pytest>=7"]
+
+[project.urls]
+Documentation = "https://github.com/monz/loom"  # placeholder
+
+[project.scripts]
+loom = "loom.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

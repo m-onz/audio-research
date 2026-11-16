@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scan"
+version = "0.1.0"
+description = "scan: the wavetable arena — frames born not designed; morph, vector and pitch paths as genes; bred under four selection policies, the one with echo's archive is the one that goes somewhere. maze's methodology, adopted; a second country for the same question."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.24", "echo>=0.1.0"]
+
+[project.optional-dependencies]
+sub = ["torch>=2.0"]             # the substrate organism (DeepHyperNEAT)
+
+[project.scripts]
+scan = "scan.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

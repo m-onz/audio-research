@@ -1,0 +1,45 @@
+# python
+__pycache__/
+*.pyc
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+
+# os
+.DS_Store
+
+# ---- generated audio & run state (code only; outputs are yours to make) ----
+
+# your source corpus — drop wavs here, but don't commit them (they may not be
+# yours to redistribute). Keep the README that explains the convention.
+sounds/**
+!sounds/README.md
+
+# riff_lab run state: populations, caches, the novelty archive, rendered riffs
+riffs/
+
+# lab chain intermediates & outputs
+labs/m-onz-sounds/
+labs/m-onz_oneshots/
+labs/m-onz_bass/
+labs/m-onz_bass2/
+labs/m-onz_bass3/
+labs/m-onz_dub/
+labs/m-onz_squelch/
+labs/m-onz_neuro/
+labs/m-onz_neuro2/
+labs/m-onz_neuro3/
+
+# research/ experiment run outputs & galleries
+research/**/runs/
+research/**/*_out/
+research/**/gallery/
+research/**/checkpoints/
+research/**/*.log
+
+# stray renders
+*.wav

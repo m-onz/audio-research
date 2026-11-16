@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maestro"
+version = "0.1.0"
+description = "maestro: the orchestration organ — a CPPN score organism whose inputs are a spike-encoded spine and whose outputs are voices; the phenotype is an agnostic event score that maps onto any sound material (NEAT Drummer's scaffolding, open-ended edition)."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = ["numpy>=1.24", "pillow>=10", "echo>=0.1.0"]
+
+[project.scripts]
+maestro = "maestro.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
